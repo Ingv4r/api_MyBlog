@@ -31,7 +31,17 @@ python manage.py migrate
 ```
 python3 manage.py runserver
 ```
-# Примеры:
+# Примеры запросов
+## Получение JWT токена аутентификации:
+```
+POST http://127.0.0.1:8000/api/v1/jwt/create/
+Content-Type: application/json
+
+{
+"username": "string",
+"password": "string"
+}
+```
 ## Получение списка публикаций:
 ```
 GET http://127.0.0.1:8000/api/v1/posts/

@@ -16,3 +16,19 @@ py -3.9 -m venv env
 ```
 source env/bin/activate
 ```
+3. Установить зависимости из файла requirements.txt:
+```
+python -m pip install --upgrade pip
+```
+```
+pip install -r requirements.txt
+```
+4. Выполнить миграции:
+```
+python manage.py migrate
+```
+5. Запустить проект:
+```
+python3 manage.py runserver
+```
+# Примеры:

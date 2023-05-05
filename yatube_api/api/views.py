@@ -17,6 +17,7 @@ class PostViewSet(viewsets.ModelViewSet):
     Provides custom view set methods for Post model
     with pagination.
     """
+
     queryset = Post.objects.select_related('author')
     serializer_class = PostSerializer
     pagination_class = LimitOffsetPagination
@@ -60,6 +61,7 @@ class FollowViewSet(viewsets.ModelViewSet):
     Provides custom GET and POST methods for Follow model
     with search filter.
     """
+
     queryset = Follow.objects.select_related('user')
     serializer_class = FollowSerializer
     permission_classes = (permissions.IsAuthenticated,)

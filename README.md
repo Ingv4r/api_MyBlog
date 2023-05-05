@@ -2,5 +2,7 @@
 API для приложения yatube. Ответы в формате JSON. Применены пермишены, пагинация и фильтрация ответов API
 # Как запустить проект:
 1 Клонировать репозиторий, если к нему есть доступ и перейти в него в командной строке:
-```git clone https://github.com/Ingv4r/api_final_yatube.git
-cd api_final_yatube/```
+```
+git clone https://github.com/Ingv4r/api_final_yatube.git
+cd api_final_yatube/
+```

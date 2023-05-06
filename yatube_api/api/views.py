@@ -17,7 +17,6 @@ class PostViewSet(viewsets.ModelViewSet):
     Provides custom view set methods for Post model
     with pagination.
     """
-
     queryset = Post.objects.select_related('author')
     serializer_class = PostSerializer
     pagination_class = LimitOffsetPagination
@@ -30,7 +29,6 @@ class PostViewSet(viewsets.ModelViewSet):
 
 class CommentViewSet(viewsets.ModelViewSet):
     """Provides custom view set methods for Comment model."""
-
     queryset = Comment.objects.select_related('author')
     serializer_class = CommentSerializer
     permission_classes = (AuthorOrReadOnly,)
@@ -51,7 +49,6 @@ class CommentViewSet(viewsets.ModelViewSet):
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     """Provides standart view set methods for Group model."""
-
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
@@ -61,7 +58,6 @@ class FollowViewSet(viewsets.ModelViewSet):
     Provides custom GET and POST methods for Follow model
     with search filter.
     """
-
     queryset = Follow.objects.select_related('user')
     serializer_class = FollowSerializer
     permission_classes = (permissions.IsAuthenticated,)
@@ -74,7 +70,5 @@ class FollowViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         """Get custom queryset method with current user subscriptions."""
-        new_queryset = Follow.objects.filter(
-            user=self.request.user
-        ).select_related('user')
+        new_queryset = self.request.user.follower.all()
         return new_queryset
